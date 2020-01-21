@@ -8,7 +8,6 @@ void openFileIn(ifstream&, string);
 void openFileOut(ofstream&, string);
 void processFileM(ifstream&, string);
 void processFileT(ifstream&, string);
-void makeMorseString(string morseStrings[91]);
 
 int main(){
 	cout << "Command>";
@@ -58,8 +57,19 @@ else {
 }
 }
 
-void makeMorseString(string morseStrings[91]){
-	morseStrings['A'] = ".-";
+
+void processFileM(ifstream& inFile, string fileOut){
+    ofstream outFile;
+    cout << "Attempting to open: " << fileOut << endl;
+    openFileOut(outFile, fileOut);
+    string line;
+    char currentChar;
+    int charValue;
+    int numCharacters = 0;
+
+	
+    string morseStrings[91];
+    morseStrings['A'] = ".-";
     morseStrings['B'] = "-...";
 	morseStrings['C'] = "-.-.";
 	morseStrings['D'] = "-..";
@@ -95,23 +105,6 @@ void makeMorseString(string morseStrings[91]){
 	morseStrings['8'] = "---..";
 	morseStrings['9'] = "----.";
 	morseStrings['0'] = "-----";
-	cout << morseStrings['0'];
-	exit(-1);
-}
-
-void processFileM(ifstream& inFile, string fileOut){
-    ofstream outFile;
-    cout << "Attempting to open: " << fileOut << endl;
-    openFileOut(outFile, fileOut);
-    string line;
-    char currentChar;
-    int charValue;
-    int numCharacters = 0;
-
-	
-    string morseStrings[91];
-    makeMorseString(morseStrings);
-    	cout << morseStrings['0'];
 	
     while(!inFile.eof()){
         //read line by line
@@ -157,7 +150,42 @@ void processFileT(ifstream& inFile, string fileOut){
 	int letterComplete = 0;
 	
 	string morseStrings[91];
-	makeMorseString(morseStrings);
+	morseStrings['A'] = ".-";
+    morseStrings['B'] = "-...";
+	morseStrings['C'] = "-.-.";
+	morseStrings['D'] = "-..";
+	morseStrings['E'] = ".";
+	morseStrings['F'] = "..-.";
+	morseStrings['G'] = "--.";
+	morseStrings['H'] = "....";
+	morseStrings['I'] = "..";
+	morseStrings['J'] = ".---";
+	morseStrings['K'] = "-.-";
+	morseStrings['L'] = ".-..";
+	morseStrings['M'] = "--";
+	morseStrings['N'] = "-.";
+	morseStrings['O'] = "---";
+	morseStrings['P'] = ".--.";
+	morseStrings['Q'] = "--.-";
+	morseStrings['R'] = ".-.";
+	morseStrings['S'] = "...";
+	morseStrings['T'] = "-";
+	morseStrings['U'] = "..-";
+	morseStrings['V'] = "...-";
+	morseStrings['W'] = ".--";
+	morseStrings['X'] = "-..-";
+	morseStrings['Y'] = "-.--";
+	morseStrings['Z'] = "--..";
+	morseStrings['1'] = ".----";
+	morseStrings['2'] = "..---";
+	morseStrings['3'] = "...--";
+	morseStrings['4'] = "....-";
+	morseStrings['5'] = ".....";
+	morseStrings['6'] = "-....";
+	morseStrings['7'] = "--...";
+	morseStrings['8'] = "---..";
+	morseStrings['9'] = "----.";
+	morseStrings['0'] = "-----";
 	
     while(!inFile.eof()){
 
